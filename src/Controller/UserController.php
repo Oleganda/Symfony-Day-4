@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+
 use App\Entity\Todo;
 use App\Repository\TodoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,7 +26,7 @@ class UserController extends AbstractController
     public function show(Todo $todo): Response
     {
         return $this->render('user/details.html.twig', [
-            'todo' => $todo,
+            'todo' => $todo
         ]);
     }
 }

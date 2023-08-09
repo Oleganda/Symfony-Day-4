@@ -30,7 +30,7 @@
                 <td> {{ todo.priority|title }}</td>
                 <td>{{ todo.fkStatus.status|title}}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{ path('app_todo_show', {'id': todo.id}) }}">Details</a>
+                    <a class="btn btn-primary" href="{{ path('app_user_details', {'id': todo.id}) }}">Details</a>
                 </td>
             </tr>
         {% else %}
