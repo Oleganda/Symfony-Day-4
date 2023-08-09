@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Tasks{% endblock %}
+
+{% block body %}
+    <h1 class="text-center mt-5">My tasks</h1>
+<div class="container mt-5">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Icon</th>
+                <th>Task</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Priority</th>
+                <th>Status</th>
+                 <th>Changes</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for todo in todos %}
+            <tr>
+                <td>{{ todo.id }}</td>
+                <td> <img src="{{ asset('pictures/' ~ todo.pictureUrl) }}" style="width: 40px"></td>
+                <td>{{ todo.task }}</td>
+                <td>{{ todo.description }}</td>
+                <td>{{ todo.date ? todo.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td> {{ todo.priority|title }}</td>
+                <td>{{ todo.fkStatus.status|title}}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_todo_show', {'id': todo.id}) }}">Details</a>
+                    <a class="btn btn-primary"  href="{{ path('app_todo_edit', {'id': todo.id}) }}">Edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">No records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary"  href="{{ path('app_todo_new') }}">New task</a>
+    </div>
+{% endblock %}

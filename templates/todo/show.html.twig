@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Todo{% endblock %}
+
+{% block body %}
+    <h1 class="text-center mt-5">My Task {{todo.id}}</h1>
+<div class="container">
+    <table class="table table-primary table-striped table-bordeless">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ todo.id }}</td>
+            </tr>
+            <tr>
+                <th>Task</th>
+                <td>{{ todo.task }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ todo.description }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ todo.date ? todo.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Priority</th>
+                <td>{{ todo.priority|title }}</td>
+            </tr>
+        </tbody>
+    </table>
+<div>
+    <a class="btn btn-primary ms-5" href="{{ path('app_todo_index') }}">Back</a>
+
+    <a class="btn btn-primary ms-5" href="{{ path('app_todo_edit', {'id': todo.id}) }}">Edit</a>
+
+   {{ include ('todo/_delete_form.html.twig') }} 
+{% endblock %}
