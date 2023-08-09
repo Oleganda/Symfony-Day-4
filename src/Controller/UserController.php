@@ -21,7 +21,7 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_todo_show', methods: ['GET'])]
+    #[Route('/{id}', name: 'app_user_details', methods: ['GET'])]
     public function show(Todo $todo): Response
     {
         return $this->render('user/details.html.twig', [
