@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}My Tasks{% endblock %}
+{% block title %}Hello!{% endblock %}
 
 {% block body %}
-    <h1 class="text-center mt-5">My tasks</h1>
+<h1 class="text-center mt-5">All tasks</h1>
+<h2 class="text-center mt-5"> Hello {{user.lname}}</h2>
 <div class="container mt-5">
     <table class="table">
         <thead>
@@ -30,7 +31,6 @@
                 <td>{{ todo.fkStatus.status|title}}</td>
                 <td>
                     <a class="btn btn-primary" href="{{ path('app_todo_show', {'id': todo.id}) }}">Details</a>
-                    <a class="btn btn-primary"  href="{{ path('app_todo_edit', {'id': todo.id}) }}">Edit</a>
                 </td>
             </tr>
         {% else %}
@@ -40,8 +40,8 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a class="btn btn-primary"  href="{{ path('app_todo_new') }}">New task</a>
      <a class="btn btn-primary" href="/logout">Logout</a>
+
+    
     </div>
 {% endblock %}
